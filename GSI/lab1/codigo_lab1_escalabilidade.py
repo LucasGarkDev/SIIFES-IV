@@ -1,30 +1,30 @@
 # codigo_lab1_escalabilidade.py
 import time
 from datetime import datetime
-import threading
 import random
+from concurrent.futures import ThreadPoolExecutor
+import threading
+
+NUM_CLIENTES = 10000
+LATENCIA = 2  # Alterar para 2 para o segundo teste
 
 log_de_transacoes = []
 lock = threading.Lock()
 
 def processar_transacao(evento):
     global log_de_transacoes
-    agora = datetime.now().strftime("%H:%M:%S")
+    
+    # Simula latência externa (rede/banco/API)
+    time.sleep(LATENCIA)
 
-    with lock:  # Evita conflito entre threads
-        print(f"\n[{agora}] NOVO EVENTO: Cliente {evento['cliente']} | Valor: R${evento['valor']}")
-
+    with lock:
         if evento['valor'] > 1000:
             evento['valor'] *= 0.85
-            print(f" [AUTOMAÇÃO]: Regra aplicada. Novo valor: R${evento['valor']:.2f}")
 
         compras_anteriores = [
             t for t in log_de_transacoes
             if t['cliente'] == evento['cliente']
         ]
-
-        if len(compras_anteriores) >= 2:
-            print(f" [ALERTA CEP]: Cliente {evento['cliente']} com múltiplas transações.")
 
         log_de_transacoes.append(evento)
 
@@ -37,13 +37,21 @@ def gerar_transacao(cliente_id):
     processar_transacao(evento)
 
 
-threads = []
+if __name__ == "__main__":
 
-# Simula 20 clientes simultâneos (poderia ser 10000)
-for i in range(20):
-    t = threading.Thread(target=gerar_transacao, args=(i,))
-    threads.append(t)
-    t.start()
+    inicio = time.time()
 
-for t in threads:
-    t.join()
+    # Pool de threads (não cria 10k threads reais)
+    with ThreadPoolExecutor(max_workers=100) as executor:
+        executor.map(gerar_transacao, range(NUM_CLIENTES))
+
+    fim = time.time()
+
+    tempo_total = fim - inicio
+    throughput = NUM_CLIENTES / tempo_total
+
+    print("\n--- TESTE DE ESCALABILIDADE ---")
+    print(f"Clientes processados: {NUM_CLIENTES}")
+    print(f"Latência simulada: {LATENCIA} segundos")
+    print(f"Tempo total: {tempo_total:.4f} segundos")
+    print(f"Throughput: {throughput:.2f} transações/segundo")

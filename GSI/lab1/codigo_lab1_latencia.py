@@ -32,6 +32,19 @@ fluxo_entrada = [
     {'cliente': 'Alice', 'valor': 200.00},
 ]
 
+# ⏱ Marca início
+inicio = time.time()
+
 for transacao in fluxo_entrada:
     processar_transacao(transacao)
     time.sleep(0.1)  # Latência reduzida
+
+# ⏱ Marca fim
+fim = time.time()
+
+tempo_total = fim - inicio
+tempo_medio = tempo_total / len(fluxo_entrada)
+
+print("\n--- MÉTRICAS DE EXECUÇÃO ---")
+print(f"Tempo total de execução: {tempo_total:.4f} segundos")
+print(f"Tempo médio por evento: {tempo_medio:.4f} segundos")
