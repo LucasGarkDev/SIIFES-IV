@@ -39,4 +39,4 @@ fluxo_entrada = [
 
 for transacao in fluxo_entrada:
     processar_transacao(transacao)
-    time.sleep(2)
+    time.sleep(0.1)
