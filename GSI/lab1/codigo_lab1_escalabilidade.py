@@ -1,12 +1,15 @@
 # codigo_lab1_escalabilidade.py
 import time
+import multiprocessing
 from datetime import datetime
 import random
 from concurrent.futures import ThreadPoolExecutor
 import threading
 
-NUM_CLIENTES = 10000
-LATENCIA = 2  # Alterar para 2 para o segundo teste
+NUM_CLIENTES = 4
+LATENCIA = 0.1  # Alterar para 2 para o segundo teste
+# LATENCIA = 2
+# LATENCIA = 4
 
 log_de_transacoes = []
 lock = threading.Lock()
