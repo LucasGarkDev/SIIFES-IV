@@ -1,4 +1,5 @@
 # lab3/legacy_systems.py
+from integrador_esb import IntegradorESB
 # ============================================================
 # LABORATÓRIO 3 - PARTE 1
 # DESAFIO DAS ILHAS DE DADOS
@@ -45,4 +46,5 @@ def processar_pagamento(dados_pagamento):
 # ------------------------------------------------------------
 if __name__ == "__main__":
     print("\nTentando integrar Sistema RH com Sistema Financeiro...\n")
-    processar_pagamento(funcionario_rh)
+    integrado = IntegradorESB.transformar_rh_para_financeiro(funcionario_rh)
+    processar_pagamento(integrado)
