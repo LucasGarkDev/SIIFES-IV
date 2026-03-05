@@ -1,5 +1,6 @@
 # lab3/legacy_systems.py
 from integrador_esb import IntegradorESB
+
 # ============================================================
 # LABORATÓRIO 3 - PARTE 1
 # DESAFIO DAS ILHAS DE DADOS
@@ -21,7 +22,7 @@ pois os formatos das chaves são incompatíveis.
 funcionario_rh = {
     "id_func": 101,
     "nome_completo": "Eduardo Amaral",
-    "salario_base": 5000.00
+    "salario_base": 5000.00,
 }
 
 
@@ -36,7 +37,9 @@ def processar_pagamento(dados_pagamento):
     Ele falha se as chaves esperadas não existirem.
     """
     try:
-        print(f"Processando ID {dados_pagamento['cod']}: Valor R$ {dados_pagamento['valor']}")
+        print(
+            f"Processando ID {dados_pagamento['cod']}: Valor R$ {dados_pagamento['valor']}"
+        )
     except KeyError as e:
         print(f"ERRO DE INTEROPERABILIDADE: Chave não encontrada {e}")
 
@@ -46,5 +49,5 @@ def processar_pagamento(dados_pagamento):
 # ------------------------------------------------------------
 if __name__ == "__main__":
     print("\nTentando integrar Sistema RH com Sistema Financeiro...\n")
-    integrado = IntegradorESB.transformar_rh_para_financeiro(funcionario_rh)
-    processar_pagamento(integrado)
+    dados_convertidos = IntegradorESB.transformar_rh_para_financeiro(funcionario_rh)
+    processar_pagamento(dados_convertidos)  # Agora funciona!
