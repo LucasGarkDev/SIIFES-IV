@@ -52,6 +52,8 @@ def get_cidadao(id):
     cidadao = database.get(id, {"erro": "Não encontrado"})
     return jsonify(cidadao)
 
+# simulaçao de um microserviço ePING que pode ser consumido por diversos sistemas
+# curl http://localhost:5000/api/cidadao/1
 
 # ------------------------------------------------------------
 # Execução do Serviço
