@@ -1,8 +1,8 @@
 import pandas as pd
 
-# print("\n==============================")
-# print("ETAPA 1 - EXTRAÇÃO")
-# print("==============================")
+print("\n==============================")
+print("ETAPA 1 - EXTRAÇÃO")
+print("==============================")
 
 # Interoperabilidade Técnica:
 # Estamos lendo arquivos CSV de sistemas diferentes.
@@ -10,9 +10,9 @@ import pandas as pd
 vendas = pd.read_csv("vendas.csv")
 produtos = pd.read_csv("produtos.csv")
 
-# print("\n==============================")
-# print("ETAPA 2 - TRANSFORMAÇÃO")
-# print("==============================")
+print("\n==============================")
+print("ETAPA 2 - TRANSFORMAÇÃO")
+print("==============================")
 
 # ============================================================
 # INTEROPERABILIDADE SEMÂNTICA
@@ -22,8 +22,8 @@ produtos = pd.read_csv("produtos.csv")
 
 dw = pd.merge(vendas, produtos, on="sku")
 
-# print("\nTabela após Merge (Integração):")
-# print(dw.head())
+print("\nTabela após Merge (Integração):")
+print(dw.head())
 
 
 # ============================================================
@@ -32,8 +32,8 @@ dw = pd.merge(vendas, produtos, on="sku")
 
 dw["faturamento"] = dw["qtd"] * dw["preco"]
 
-# print("\nTabela com Faturamento Calculado:")
-# print(dw.head())
+print("\nTabela com Faturamento Calculado:")
+print(dw.head())
 
 
 # ============================================================
@@ -42,8 +42,8 @@ dw["faturamento"] = dw["qtd"] * dw["preco"]
 
 dw["nome"] = dw["nome"].str.upper()
 
-# print("\nTabela após Padronização (Nomes em MAIÚSCULO):")
-# print(dw.head())
+print("\nTabela após Padronização (Nomes em MAIÚSCULO):")
+print(dw.head())
 
 print("\n==============================")
 print("ETAPA 3 - CARGA")
