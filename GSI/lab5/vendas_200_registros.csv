@@ -1,0 +1,201 @@
+ID_Transacao,Data,Regional,Vendedor,Categoria,Produto,Valor_Venda
+1,11/03/2026,Sul,Ana,Acessórios,Mouse Gamer,150.00
+2,08/03/2026,Sul,Ana,Eletrodomésticos,Airfryer,450.00
+3,04/03/2026,Nordeste,Ana,Acessórios,Teclado Mecânico,350.00
+4,13/03/2026,Sul,Carla,Cozinha,Jogo de Panelas,600.00
+5,14/03/2026,Sudeste,Diego,Eletrodomésticos,Geladeira,3800.00
+6,09/03/2026,Sul,Elena,Eletrodomésticos,Airfryer,450.00
+7,13/03/2026,Sudeste,Ana,Eletrodomésticos,Ar Condicionado,2200.00
+8,10/03/2026,Sul,Carla,Cozinha,Jogo de Panelas,600.00
+9,12/03/2026,Sudeste,Diego,Eletrodomésticos,Micro-ondas,700.00
+10,04/03/2026,Sudeste,Elena,Eletrodomésticos,Máquina de Lavar,2900.00
+11,15/03/2026,Sudeste,Diego,Eletrodomésticos,Geladeira,3800.00
+12,07/03/2026,Nordeste,Carla,Eletrodomésticos,Máquina de Lavar,2900.00
+13,09/03/2026,Sul,Elena,Eletrodomésticos,Ar Condicionado,2200.00
+14,07/03/2026,Sudeste,Carla,Eletrodomésticos,Máquina de Lavar,2900.00
+15,09/03/2026,Sudeste,Carla,Eletrodomésticos,Ar Condicionado,2200.00
+16,04/03/2026,Sudeste,Ana,Acessórios,Capa Tablet,100.00
+17,12/03/2026,Sudeste,Elena,Acessórios,Mouse Gamer,150.00
+18,06/03/2026,Nordeste,Elena,Acessórios,Capa Tablet,100.00
+19,04/03/2026,Sul,Diego,Eletrônicos,Monitor 24,1200.00
+20,15/03/2026,Nordeste,Diego,Móveis,Cadeira Office,800.00
+21,15/03/2026,Sudeste,Diego,Móveis,Sofá 3 Lugares,2100.00
+22,10/03/2026,Sul,Diego,Eletrônicos,Smartphone,2500.00
+23,13/03/2026,Nordeste,Bruno,Móveis,Sofá 3 Lugares,2100.00
+24,01/03/2026,Sul,Ana,Eletrônicos,Monitor 24,1200.00
+25,13/03/2026,Sul,Bruno,Eletrodomésticos,Máquina de Lavar,2900.00
+26,06/03/2026,Sudeste,Carla,Móveis,Painel TV,400.00
+27,07/03/2026,Nordeste,Diego,Eletrodomésticos,Micro-ondas,700.00
+28,06/03/2026,Sul,Diego,Eletrodomésticos,Cafeteira,350.00
+29,13/03/2026,Sul,Diego,Móveis,Painel TV,400.00
+30,14/03/2026,Nordeste,Bruno,Acessórios,Capa Tablet,100.00
+31,13/03/2026,Nordeste,Elena,Eletrodomésticos,Cafeteira,350.00
+32,02/03/2026,Sul,Bruno,Eletrodomésticos,Ar Condicionado,2200.00
+33,09/03/2026,Sudeste,Elena,Acessórios,Fone Bluetooth,200.00
+34,06/03/2026,Nordeste,Diego,Cozinha,Jogo de Panelas,600.00
+35,10/03/2026,Sudeste,Ana,Móveis,Painel TV,400.00
+36,06/03/2026,Sul,Diego,Eletrônicos,Tablet,1800.00
+37,05/03/2026,Sul,Bruno,Eletrodomésticos,Geladeira,3800.00
+38,03/03/2026,Nordeste,Bruno,Eletrodomésticos,Micro-ondas,700.00
+39,06/03/2026,Sudeste,Carla,Acessórios,Capa Tablet,100.00
+40,09/03/2026,Sul,Carla,Eletrônicos,Tablet,1800.00
+41,03/03/2026,Sudeste,Elena,Eletrônicos,Notebook,4500.00
+42,06/03/2026,Sudeste,Elena,Eletrodomésticos,Cafeteira,350.00
+43,06/03/2026,Nordeste,Carla,Móveis,Painel TV,400.00
+44,08/03/2026,Sul,Carla,Acessórios,Teclado Mecânico,350.00
+45,10/03/2026,Sudeste,Ana,Eletrônicos,Tablet,1800.00
+46,05/03/2026,Sudeste,Diego,Móveis,Sofá 3 Lugares,2100.00
+47,10/03/2026,Sul,Carla,Acessórios,Fone Bluetooth,200.00
+48,06/03/2026,Nordeste,Ana,Eletrônicos,Notebook,4500.00
+49,08/03/2026,Nordeste,Ana,Acessórios,Capa Tablet,100.00
+50,11/03/2026,Nordeste,Diego,Eletrodomésticos,Ar Condicionado,2200.00
+51,11/03/2026,Sudeste,Ana,Acessórios,Capa Tablet,100.00
+52,12/03/2026,Sudeste,Diego,Eletrônicos,Tablet,1800.00
+53,08/03/2026,Sudeste,Diego,Acessórios,Capa Tablet,100.00
+54,08/03/2026,Sudeste,Elena,Eletrodomésticos,Airfryer,450.00
+55,07/03/2026,Sul,Diego,Eletrônicos,Monitor 24,1200.00
+56,02/03/2026,Nordeste,Carla,Eletrodomésticos,Geladeira,3800.00
+57,12/03/2026,Sudeste,Carla,Acessórios,Teclado Mecânico,350.00
+58,04/03/2026,Sul,Ana,Eletrônicos,Notebook,4500.00
+59,04/03/2026,Nordeste,Diego,Móveis,Sofá 3 Lugares,2100.00
+60,11/03/2026,Nordeste,Elena,Acessórios,Teclado Mecânico,350.00
+61,05/03/2026,Nordeste,Ana,Acessórios,Capa Tablet,100.00
+62,14/03/2026,Sudeste,Bruno,Cozinha,Jogo de Panelas,600.00
+63,02/03/2026,Nordeste,Ana,Eletrônicos,Smartphone,2500.00
+64,09/03/2026,Nordeste,Diego,Eletrodomésticos,Airfryer,450.00
+65,14/03/2026,Sudeste,Ana,Acessórios,Mouse Gamer,150.00
+66,10/03/2026,Sul,Diego,Acessórios,Mouse Gamer,150.00
+67,14/03/2026,Nordeste,Elena,Acessórios,Teclado Mecânico,350.00
+68,06/03/2026,Sudeste,Elena,Móveis,Sofá 3 Lugares,2100.00
+69,06/03/2026,Nordeste,Diego,Acessórios,Fone Bluetooth,200.00
+70,04/03/2026,Sul,Elena,Acessórios,Teclado Mecânico,350.00
+71,04/03/2026,Sul,Elena,Cozinha,Jogo de Panelas,600.00
+72,11/03/2026,Sul,Carla,Móveis,Cadeira Office,800.00
+73,14/03/2026,Sudeste,Carla,Eletrodomésticos,Máquina de Lavar,2900.00
+74,15/03/2026,Nordeste,Ana,Cozinha,Jogo de Panelas,600.00
+75,08/03/2026,Sudeste,Carla,Eletrônicos,Monitor 24,1200.00
+76,04/03/2026,Sul,Carla,Eletrodomésticos,Máquina de Lavar,2900.00
+77,14/03/2026,Sudeste,Diego,Eletrônicos,Smartphone,2500.00
+78,12/03/2026,Sul,Elena,Eletrodomésticos,Geladeira,3800.00
+79,07/03/2026,Sudeste,Carla,Eletrodomésticos,Máquina de Lavar,2900.00
+80,12/03/2026,Sul,Ana,Eletrodomésticos,Cafeteira,350.00
+81,13/03/2026,Nordeste,Ana,Eletrodomésticos,Máquina de Lavar,2900.00
+82,01/03/2026,Sul,Elena,Eletrônicos,Monitor 24,1200.00
+83,12/03/2026,Nordeste,Elena,Eletrônicos,Notebook,4500.00
+84,11/03/2026,Sudeste,Ana,Acessórios,Fone Bluetooth,200.00
+85,06/03/2026,Sudeste,Bruno,Eletrônicos,Tablet,1800.00
+86,07/03/2026,Sul,Diego,Eletrodomésticos,Cafeteira,350.00
+87,11/03/2026,Sudeste,Bruno,Eletrônicos,Smartphone,2500.00
+88,06/03/2026,Nordeste,Elena,Eletrônicos,Notebook,4500.00
+89,09/03/2026,Sudeste,Carla,Acessórios,Capa Tablet,100.00
+90,13/03/2026,Nordeste,Bruno,Móveis,Mesa de Jantar,1500.00
+91,05/03/2026,Sul,Diego,Eletrodomésticos,Geladeira,3800.00
+92,07/03/2026,Sul,Carla,Eletrodomésticos,Ar Condicionado,2200.00
+93,09/03/2026,Nordeste,Diego,Móveis,Painel TV,400.00
+94,13/03/2026,Nordeste,Ana,Acessórios,Capa Tablet,100.00
+95,10/03/2026,Sudeste,Bruno,Acessórios,Fone Bluetooth,200.00
+96,05/03/2026,Sudeste,Bruno,Móveis,Mesa de Jantar,1500.00
+97,10/03/2026,Sudeste,Elena,Móveis,Cadeira Office,800.00
+98,05/03/2026,Sul,Ana,Eletrônicos,Monitor 24,1200.00
+99,02/03/2026,Sul,Ana,Eletrônicos,Monitor 24,1200.00
+100,01/03/2026,Nordeste,Bruno,Acessórios,Teclado Mecânico,350.00
+101,02/03/2026,Sul,Elena,Acessórios,Fone Bluetooth,200.00
+102,14/03/2026,Sudeste,Ana,Cozinha,Jogo de Panelas,600.00
+103,08/03/2026,Sul,Diego,Eletrodomésticos,Micro-ondas,700.00
+104,06/03/2026,Sudeste,Elena,Móveis,Sofá 3 Lugares,2100.00
+105,07/03/2026,Sul,Ana,Móveis,Cadeira Office,800.00
+106,03/03/2026,Sudeste,Ana,Eletrodomésticos,Airfryer,450.00
+107,11/03/2026,Sul,Carla,Acessórios,Mouse Gamer,150.00
+108,02/03/2026,Sul,Carla,Eletrodomésticos,Airfryer,450.00
+109,05/03/2026,Nordeste,Bruno,Móveis,Painel TV,400.00
+110,11/03/2026,Sudeste,Elena,Cozinha,Jogo de Panelas,600.00
+111,08/03/2026,Nordeste,Ana,Acessórios,Capa Tablet,100.00
+112,04/03/2026,Sudeste,Bruno,Eletrodomésticos,Cafeteira,350.00
+113,03/03/2026,Nordeste,Bruno,Eletrodomésticos,Máquina de Lavar,2900.00
+114,15/03/2026,Sudeste,Carla,Móveis,Sofá 3 Lugares,2100.00
+115,06/03/2026,Sudeste,Ana,Eletrodomésticos,Geladeira,3800.00
+116,05/03/2026,Nordeste,Elena,Eletrodomésticos,Máquina de Lavar,2900.00
+117,07/03/2026,Sul,Elena,Eletrodomésticos,Geladeira,3800.00
+118,05/03/2026,Sudeste,Carla,Eletrônicos,Monitor 24,1200.00
+119,05/03/2026,Sul,Elena,Móveis,Painel TV,400.00
+120,01/03/2026,Sul,Bruno,Móveis,Sofá 3 Lugares,2100.00
+121,03/03/2026,Sul,Bruno,Acessórios,Teclado Mecânico,350.00
+122,09/03/2026,Sudeste,Diego,Móveis,Mesa de Jantar,1500.00
+123,11/03/2026,Sudeste,Carla,Eletrodomésticos,Ar Condicionado,2200.00
+124,01/03/2026,Sul,Diego,Acessórios,Fone Bluetooth,200.00
+125,05/03/2026,Sul,Ana,Eletrodomésticos,Airfryer,450.00
+126,06/03/2026,Sul,Elena,Eletrônicos,Notebook,4500.00
+127,15/03/2026,Sul,Bruno,Eletrodomésticos,Airfryer,450.00
+128,07/03/2026,Nordeste,Carla,Acessórios,Mouse Gamer,150.00
+129,06/03/2026,Sudeste,Carla,Móveis,Mesa de Jantar,1500.00
+130,12/03/2026,Nordeste,Carla,Eletrodomésticos,Airfryer,450.00
+131,15/03/2026,Sudeste,Carla,Acessórios,Teclado Mecânico,350.00
+132,14/03/2026,Sul,Elena,Acessórios,Teclado Mecânico,350.00
+133,06/03/2026,Sudeste,Carla,Móveis,Mesa de Jantar,1500.00
+134,07/03/2026,Sul,Diego,Eletrônicos,Tablet,1800.00
+135,07/03/2026,Nordeste,Bruno,Cozinha,Jogo de Panelas,600.00
+136,10/03/2026,Nordeste,Bruno,Cozinha,Jogo de Panelas,600.00
+137,04/03/2026,Sul,Bruno,Acessórios,Capa Tablet,100.00
+138,04/03/2026,Sul,Elena,Eletrodomésticos,Cafeteira,350.00
+139,06/03/2026,Sudeste,Carla,Eletrônicos,Tablet,1800.00
+140,06/03/2026,Sudeste,Bruno,Móveis,Mesa de Jantar,1500.00
+141,10/03/2026,Sudeste,Ana,Eletrônicos,Notebook,4500.00
+142,04/03/2026,Sul,Elena,Eletrodomésticos,Máquina de Lavar,2900.00
+143,06/03/2026,Nordeste,Elena,Eletrodomésticos,Airfryer,450.00
+144,11/03/2026,Nordeste,Carla,Eletrodomésticos,Ar Condicionado,2200.00
+145,04/03/2026,Sul,Bruno,Eletrodomésticos,Micro-ondas,700.00
+146,06/03/2026,Nordeste,Diego,Eletrônicos,Notebook,4500.00
+147,05/03/2026,Sudeste,Carla,Acessórios,Mouse Gamer,150.00
+148,14/03/2026,Sul,Elena,Cozinha,Jogo de Panelas,600.00
+149,07/03/2026,Nordeste,Elena,Móveis,Sofá 3 Lugares,2100.00
+150,06/03/2026,Nordeste,Diego,Eletrodomésticos,Micro-ondas,700.00
+151,11/03/2026,Sul,Elena,Eletrônicos,Notebook,4500.00
+152,04/03/2026,Sul,Elena,Eletrodomésticos,Airfryer,450.00
+153,12/03/2026,Nordeste,Elena,Eletrônicos,Tablet,1800.00
+154,10/03/2026,Nordeste,Diego,Eletrodomésticos,Cafeteira,350.00
+155,06/03/2026,Sul,Elena,Eletrodomésticos,Airfryer,450.00
+156,09/03/2026,Sudeste,Carla,Móveis,Sofá 3 Lugares,2100.00
+157,13/03/2026,Sudeste,Carla,Acessórios,Mouse Gamer,150.00
+158,06/03/2026,Sul,Bruno,Acessórios,Teclado Mecânico,350.00
+159,09/03/2026,Sul,Carla,Móveis,Painel TV,400.00
+160,15/03/2026,Nordeste,Bruno,Eletrodomésticos,Micro-ondas,700.00
+161,02/03/2026,Sul,Carla,Acessórios,Teclado Mecânico,350.00
+162,08/03/2026,Nordeste,Carla,Eletrodomésticos,Micro-ondas,700.00
+163,05/03/2026,Sudeste,Bruno,Eletrônicos,Tablet,1800.00
+164,13/03/2026,Sudeste,Diego,Eletrônicos,Notebook,4500.00
+165,11/03/2026,Sul,Carla,Eletrônicos,Smartphone,2500.00
+166,13/03/2026,Nordeste,Ana,Cozinha,Jogo de Panelas,600.00
+167,07/03/2026,Nordeste,Bruno,Acessórios,Fone Bluetooth,200.00
+168,15/03/2026,Sudeste,Carla,Eletrodomésticos,Geladeira,3800.00
+169,09/03/2026,Sudeste,Diego,Eletrodomésticos,Ar Condicionado,2200.00
+170,13/03/2026,Sul,Diego,Eletrônicos,Monitor 24,1200.00
+171,06/03/2026,Sul,Elena,Eletrodomésticos,Airfryer,450.00
+172,14/03/2026,Sul,Bruno,Móveis,Cadeira Office,800.00
+173,08/03/2026,Sul,Ana,Acessórios,Fone Bluetooth,200.00
+174,01/03/2026,Nordeste,Ana,Acessórios,Mouse Gamer,150.00
+175,11/03/2026,Sudeste,Carla,Eletrônicos,Smartphone,2500.00
+176,09/03/2026,Sudeste,Carla,Eletrodomésticos,Micro-ondas,700.00
+177,06/03/2026,Sudeste,Elena,Acessórios,Capa Tablet,100.00
+178,15/03/2026,Nordeste,Ana,Eletrodomésticos,Micro-ondas,700.00
+179,04/03/2026,Sul,Carla,Eletrodomésticos,Geladeira,3800.00
+180,02/03/2026,Sudeste,Ana,Eletrodomésticos,Airfryer,450.00
+181,08/03/2026,Nordeste,Diego,Cozinha,Jogo de Panelas,600.00
+182,05/03/2026,Nordeste,Ana,Eletrodomésticos,Airfryer,450.00
+183,15/03/2026,Nordeste,Bruno,Móveis,Sofá 3 Lugares,2100.00
+184,07/03/2026,Sul,Elena,Eletrônicos,Smartphone,2500.00
+185,07/03/2026,Nordeste,Diego,Móveis,Cadeira Office,800.00
+186,02/03/2026,Sudeste,Carla,Eletrodomésticos,Airfryer,450.00
+187,03/03/2026,Sul,Bruno,Acessórios,Teclado Mecânico,350.00
+188,15/03/2026,Nordeste,Bruno,Móveis,Cadeira Office,800.00
+189,10/03/2026,Sul,Bruno,Móveis,Cadeira Office,800.00
+190,06/03/2026,Nordeste,Carla,Acessórios,Mouse Gamer,150.00
+191,07/03/2026,Sudeste,Diego,Acessórios,Teclado Mecânico,350.00
+192,14/03/2026,Nordeste,Bruno,Eletrodomésticos,Micro-ondas,700.00
+193,15/03/2026,Sudeste,Carla,Eletrônicos,Monitor 24,1200.00
+194,07/03/2026,Sudeste,Bruno,Eletrônicos,Monitor 24,1200.00
+195,04/03/2026,Nordeste,Ana,Acessórios,Fone Bluetooth,200.00
+196,02/03/2026,Sudeste,Ana,Eletrodomésticos,Geladeira,3800.00
+197,13/03/2026,Sudeste,Carla,Eletrodomésticos,Micro-ondas,700.00
+198,09/03/2026,Sudeste,Ana,Acessórios,Teclado Mecânico,350.00
+199,04/03/2026,Nordeste,Diego,Eletrodomésticos,Geladeira,3800.00
+200,01/03/2026,Sudeste,Ana,Móveis,Mesa de Jantar,1500.00
