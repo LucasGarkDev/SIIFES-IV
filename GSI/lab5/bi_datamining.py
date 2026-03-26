@@ -10,7 +10,7 @@ print("====================================")
 
 # Interoperabilidade Técnica ocorre aqui:
 # Leitura do arquivo CSV padronizado
-df = pd.read_csv("vendas_200_registros.csv")
+df = pd.read_csv("base_vendas_300_transacoes.csv")
 
 print("\nEstrutura da Base:")
 print(df.head())
