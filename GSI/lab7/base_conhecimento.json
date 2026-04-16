@@ -3,7 +3,7 @@
         "id": 1,
         "titulo": "Acesso VPN",
         "conteudo": "Usar Cisco AnyConnect...",
-        "acessos": 120
+        "acessos": 122
     },
     {
         "id": 2,
@@ -19,20 +19,8 @@
     },
     {
         "id": 4,
-        "titulo": "Erro de Login",
-        "conteudo": "Resetar senha via sistema interno.",
-        "acessos": 0
-    },
-    {
-        "id": 5,
-        "titulo": "Erro de Login",
-        "conteudo": "Resetar senha via sistema interno.",
-        "acessos": 0
-    },
-    {
-        "id": 6,
-        "titulo": "Erro de Login",
-        "conteudo": "Resetar senha via sistema interno.",
+        "titulo": "Falha no Wi-Fi",
+        "conteudo": "Reiniciar modem e verificar cabos.",
         "acessos": 0
     }
 ]
