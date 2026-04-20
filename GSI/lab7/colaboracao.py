@@ -1,10 +1,11 @@
 from dados import salvar_dados
 
-def adicionar_conhecimento(base):
-    print("\n--- NOVO CONHECIMENTO ---")
+def criar_conhecimento(base, titulo, conteudo):
+    titulo = titulo.strip()
+    conteudo = conteudo.strip()
 
-    titulo = input("Título: ")
-    conteudo = input("Conteúdo: ")
+    if not titulo or not conteudo:
+        raise ValueError("Título e conteúdo são obrigatórios.")
 
     novo_id = max([item['id'] for item in base], default=0) + 1
 
@@ -16,6 +17,20 @@ def adicionar_conhecimento(base):
     }
 
     base.append(novo_item)
+    return novo_item
+
+def adicionar_conhecimento(base):
+    print("\n--- NOVO CONHECIMENTO ---")
+
+    titulo = input("Título: ")
+    conteudo = input("Conteúdo: ")
+
+    try:
+        criar_conhecimento(base, titulo, conteudo)
+    except ValueError as erro:
+        print(f"Erro: {erro}")
+        return
+
     salvar_dados(base)
 
     print("Conhecimento adicionado com sucesso!")

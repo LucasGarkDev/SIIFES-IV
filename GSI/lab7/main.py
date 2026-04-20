@@ -37,4 +37,5 @@ def menu():
             print("Encerrado.")
             break
 
-menu()
+if __name__ == "__main__":
+    menu()
