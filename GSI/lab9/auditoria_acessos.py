@@ -16,6 +16,7 @@ os.environ.setdefault("MPLCONFIGDIR", str(BASE_DIR / ".matplotlib"))
 
 import matplotlib.pyplot as plt
 import pandas as pd
+from matplotlib.ticker import MaxNLocator
 
 
 ARQUIVO_LOGS = BASE_DIR / "log_acessos_200_registros.csv"
@@ -174,47 +175,116 @@ def _autopct_com_absoluto(valores: list[int]):
     return formatador
 
 
+def _montar_resumo_numerico_pizza(resumo_classificacao: pd.DataFrame) -> str:
+    """Monta um quadro textual com contagens e percentuais da pizza."""
+    total = max(int(resumo_classificacao["quantidade"].sum()), 1)
+    linhas = ["Resumo numerico"]
+
+    for linha in resumo_classificacao.itertuples(index=False):
+        percentual = (int(linha.quantidade) / total) * 100
+        linhas.append(
+            f"{linha.categoria}: {int(linha.quantidade)} ({percentual:.1f}%)"
+        )
+
+    return "\n".join(linhas)
+
+
 def gerar_dashboard_visual(
     resumo_classificacao: pd.DataFrame,
     resumo_incidentes: pd.DataFrame,
     caminho_saida: Path,
+    total_acessos: int | None = None,
 ) -> Path:
     """Gera um dashboard simples com pizza e barras."""
-    fig, axes = plt.subplots(1, 2, figsize=(15, 6))
+    fig, axes = plt.subplots(1, 2, figsize=(16, 7))
 
-    valores_pizza = resumo_classificacao["quantidade"].tolist()
-    labels_pizza = resumo_classificacao["categoria"].tolist()
+    total_acessos = total_acessos or 0
+    resumo_pizza = resumo_classificacao[
+        resumo_classificacao["quantidade"] > 0
+    ].copy()
+    total_sucessos = int(resumo_classificacao["quantidade"].sum())
+
+    if resumo_pizza.empty:
+        resumo_pizza = pd.DataFrame(
+            {"categoria": ["Sem acessos com sucesso"], "quantidade": [1]}
+        )
+
+    valores_pizza = resumo_pizza["quantidade"].tolist()
     cores_pizza = ["#2f7ed8", "#f45b5b", "#f7a35c"]
-    axes[0].pie(
+    wedges, _, autotextos = axes[0].pie(
         valores_pizza,
-        labels=labels_pizza,
         autopct=_autopct_com_absoluto(valores_pizza),
         startangle=90,
         colors=cores_pizza[: len(valores_pizza)],
+        pctdistance=0.72,
+        wedgeprops={"width": 0.58, "edgecolor": "white"},
+        textprops={"fontsize": 11, "fontweight": "bold"},
     )
     axes[0].set_title("Classificacao dos acessos com sucesso")
+    axes[0].text(
+        0,
+        0,
+        f"{total_sucessos}\nacessos\ncom sucesso",
+        ha="center",
+        va="center",
+        fontsize=12,
+        fontweight="bold",
+    )
+    axes[0].text(
+        1.02,
+        0.5,
+        _montar_resumo_numerico_pizza(resumo_classificacao),
+        transform=axes[0].transAxes,
+        ha="left",
+        va="center",
+        fontsize=10.5,
+        bbox={"boxstyle": "round,pad=0.5", "facecolor": "#f7f7f7", "edgecolor": "#cfcfcf"},
+    )
+
+    for texto in autotextos:
+        if texto.get_text():
+            texto.set_color("#111111")
 
     resumo_barras = resumo_incidentes[
         resumo_incidentes["categoria"].isin(
             ["Contas Orfas", "Acessos Fora do Horario", "IPs Externos com Sucesso"]
         )
     ]
+    categorias_exibicao = [
+        "Contas\nOrfas",
+        "Acessos fora\ndo horario",
+        "IPs externos\ncom sucesso",
+    ]
     barras = axes[1].bar(
-        resumo_barras["categoria"],
+        categorias_exibicao,
         resumo_barras["quantidade"],
         color=["#7cb5ec", "#434348", "#90ed7d"],
     )
     axes[1].set_title("Incidentes criticos identificados")
     axes[1].set_ylabel("Quantidade de acessos")
-    axes[1].tick_params(axis="x", rotation=10)
+    axes[1].tick_params(axis="x", rotation=0, labelsize=11)
     axes[1].set_ylim(0, max(resumo_barras["quantidade"].max(), 1) + 15)
+    axes[1].yaxis.set_major_locator(MaxNLocator(integer=True))
+    axes[1].grid(axis="y", linestyle="--", alpha=0.3)
+    axes[1].set_axisbelow(True)
+    axes[1].text(
+        0.98,
+        0.96,
+        f"Base analisada: {total_acessos} acessos",
+        transform=axes[1].transAxes,
+        ha="right",
+        va="top",
+        fontsize=10,
+        bbox={"boxstyle": "round,pad=0.35", "facecolor": "#f7f7f7", "edgecolor": "#cfcfcf"},
+    )
 
     for barra in barras:
         altura = int(barra.get_height())
+        percentual = (altura / total_acessos * 100) if total_acessos else 0
         axes[1].text(
             barra.get_x() + barra.get_width() / 2,
             altura + 1,
-            str(altura),
+            f"{altura}\n{percentual:.1f}%",
             ha="center",
             va="bottom",
             fontsize=10,
@@ -222,6 +292,7 @@ def gerar_dashboard_visual(
         )
 
     fig.suptitle("Laboratorio 9 - Dashboard de riscos de seguranca", fontsize=14)
+    fig.subplots_adjust(wspace=0.42)
     fig.tight_layout()
     caminho_saida.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(caminho_saida, dpi=150, bbox_inches="tight")
@@ -302,7 +373,10 @@ def executar_auditoria(
     resumo_classificacao = montar_resumo_classificacao(cruzado)
     resumo_incidentes = montar_resumo_incidentes(cruzado)
     dashboard = gerar_dashboard_visual(
-        resumo_classificacao, resumo_incidentes, pasta_saida / "dashboard_riscos.png"
+        resumo_classificacao,
+        resumo_incidentes,
+        pasta_saida / "dashboard_riscos.png",
+        total_acessos=len(cruzado),
     )
     arquivos = salvar_evidencias(cruzado, pasta_saida)
 
