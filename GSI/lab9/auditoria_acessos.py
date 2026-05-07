@@ -51,7 +51,8 @@ def cruzar_bases(logs: pd.DataFrame, rh: pd.DataFrame) -> pd.DataFrame:
     df["fora_horario"] = (df["data_hora"].dt.hour < 8) | (
         df["data_hora"].dt.hour >= 18
     )
-    df["ip_externo"] = ~df["ip_origem"].astype(str).str.startswith("192.168")
+    df["ip_externo"] = ~df["ip_origem"].fillna("").astype(str).str.startswith("192.168")
+    df = df.drop(columns=["_merge"])
     return df
 
 
@@ -367,6 +368,10 @@ def executar_auditoria(
     pasta_saida: Path = PASTA_SAIDA,
 ) -> dict[str, Any]:
     """Executa o fluxo completo da auditoria."""
+    if not caminho_logs.exists():
+        raise FileNotFoundError(f"Arquivo de logs nao encontrado: {caminho_logs}")
+    if not caminho_rh.exists():
+        raise FileNotFoundError(f"Arquivo de RH nao encontrado: {caminho_rh}")
     logs = carregar_logs(caminho_logs)
     rh = carregar_base_rh(caminho_rh)
     cruzado = cruzar_bases(logs, rh)
