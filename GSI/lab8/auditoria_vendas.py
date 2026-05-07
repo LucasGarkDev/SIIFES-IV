@@ -50,6 +50,11 @@ def identificar_valores_invalidos(df: pd.DataFrame) -> pd.DataFrame:
     return df[mascara].copy()
 
 
+def contar_valores_nao_numericos(df: pd.DataFrame) -> int:
+    """Soma registros com ``valor`` vazio ou invalido para conversao numerica."""
+    return len(identificar_falhas_nulos(df)) + len(identificar_valores_invalidos(df))
+
+
 def identificar_campos_obrigatorios_ausentes(df: pd.DataFrame) -> pd.DataFrame:
     """Retorna registros com cliente ou metodo de pagamento ausentes."""
     mascara = df["cliente"].isna() | df["metodo_pagamento"].isna()
@@ -60,6 +65,7 @@ def montar_resumo_principal(df: pd.DataFrame) -> pd.DataFrame:
     """Monta o resumo exigido pelo roteiro do laboratorio."""
     resumo = {
         "Nulos": len(identificar_falhas_nulos(df)),
+        "Invalidos": len(identificar_valores_invalidos(df)),
         "Negativos": len(identificar_falhas_negativos(df)),
         "Duplicados": len(identificar_duplicidades(df)),
     }
@@ -71,7 +77,6 @@ def montar_resumo_principal(df: pd.DataFrame) -> pd.DataFrame:
 def montar_resumo_complementar(df: pd.DataFrame) -> pd.DataFrame:
     """Consolida problemas adicionais encontrados na base."""
     resumo = {
-        "Valor invalido (texto)": len(identificar_valores_invalidos(df)),
         "Cliente ausente": int(df["cliente"].isna().sum()),
         "Metodo ausente": int(df["metodo_pagamento"].isna().sum()),
     }
@@ -83,16 +88,18 @@ def montar_resumo_complementar(df: pd.DataFrame) -> pd.DataFrame:
 def gerar_grafico(resumo: pd.DataFrame, caminho_saida: Path) -> Path:
     """Gera o grafico de barras principal da auditoria."""
     plt.style.use("ggplot")
-    fig, ax = plt.subplots(figsize=(9, 5))
+    fig, ax = plt.subplots(figsize=(10, 5))
+    cores = ["#1f77b4", "#ff7f0e", "#d62728", "#2ca02c"]
     barras = ax.bar(
         resumo["categoria"],
         resumo["quantidade"],
-        color=["#1f77b4", "#d62728", "#2ca02c"],
+        color=cores[: len(resumo)],
     )
     ax.set_title("Auditoria do Sistema de Vendas - Ocorrencias por Categoria")
     ax.set_xlabel("Categoria de erro")
     ax.set_ylabel("Quantidade de registros")
-    ax.set_ylim(0, max(resumo["quantidade"].max(), 1) + 10)
+    ax.set_ylim(0, max(resumo["quantidade"].max(), 1) + 12)
+    ax.tick_params(axis="x", labelrotation=10)
 
     for barra in barras:
         altura = int(barra.get_height())
@@ -144,20 +151,43 @@ def gerar_relatorio_gerencial(
     resumo_principal: pd.DataFrame, resumo_complementar: pd.DataFrame
 ) -> str:
     """Produz um parecer curto para ser usado na conclusao do notebook."""
+    descricao_principal = {
+        "Nulos": "registros com valor nulo",
+        "Invalidos": "registros com valor invalido",
+        "Negativos": "registros com valor negativo",
+        "Duplicados": "IDs de transacao duplicados",
+    }
+    descricao_complementar = {
+        "Cliente ausente": "cliente ausente",
+        "Metodo ausente": "metodo de pagamento ausente",
+    }
     problema_principal = resumo_principal.sort_values(
         "quantidade", ascending=False
     ).iloc[0]
     problema_complementar = resumo_complementar.sort_values(
         "quantidade", ascending=False
     ).iloc[0]
+    valores_nao_numericos = int(
+        resumo_principal.loc[
+            resumo_principal["categoria"].isin(["Nulos", "Invalidos"]), "quantidade"
+        ].sum()
+    )
+    problema_principal_texto = descricao_principal.get(
+        problema_principal["categoria"], problema_principal["categoria"].lower()
+    )
+    problema_complementar_texto = descricao_complementar.get(
+        problema_complementar["categoria"], problema_complementar["categoria"].lower()
+    )
 
     return (
         "O problema mais critico do sistema, considerando as validacoes exigidas "
-        f"no roteiro, sao os registros com valor nulo ({int(problema_principal['quantidade'])} "
-        f"ocorrencias). Como achado complementar, a base tambem possui "
+        f"no roteiro, sao os {problema_principal_texto} "
+        f"({int(problema_principal['quantidade'])} ocorrencias). Somando nulos e "
+        f"invalidos, ha {valores_nao_numericos} registros cujo campo valor nao se "
+        "tornou numerico. Como achado complementar, a base tambem possui "
         f"{int(problema_complementar['quantidade'])} ocorrencias de "
-        f"{problema_complementar['categoria'].lower()}, o que indica ausencia de "
-        "validacao de entrada no cadastro de vendas. A recomendacao para a TI e "
+        f"{problema_complementar_texto}, o que indica ausencia de validacao de "
+        "entrada no cadastro de vendas. A recomendacao para a TI e "
         "implantar validacoes obrigatorias no momento da gravacao, bloquear "
         "valores negativos e textos no campo valor, registrar logs de erro e criar "
         "rotinas periodicas de auditoria automatizada."
@@ -176,6 +206,7 @@ def executar_auditoria(caminho_csv: Path = ARQUIVO_CSV, pasta_saida: Path = PAST
         "df": df,
         "resumo_principal": resumo_principal,
         "resumo_complementar": resumo_complementar,
+        "valores_nao_numericos": contar_valores_nao_numericos(df),
         "grafico": grafico,
         "arquivos": arquivos,
         "relatorio_gerencial": gerar_relatorio_gerencial(
@@ -202,6 +233,11 @@ def main() -> None:
     print()
     print("Resumo complementar:")
     print(resumo_complementar.to_string(index=False))
+    print()
+    print(
+        "Total de valores nao numericos (nulos + invalidos):",
+        resultado["valores_nao_numericos"],
+    )
     print()
     print("Exemplo de falhas de valor nulo:")
     print(identificar_falhas_nulos(df).head(5).to_string(index=False))
