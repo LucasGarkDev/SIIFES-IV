@@ -1,7 +1,5 @@
 # codigo_lab1_escalabilidade_mp.py
 import time
-import multiprocessing
-from datetime import datetime
 import random
 from multiprocessing import Pool, cpu_count
 
@@ -11,7 +9,6 @@ LATENCIA = 0.1  # Alterar para 2 para o segundo teste
 # LATENCIA = 4
 
 log_de_transacoes = []
-lock = threading.Lock()
 
 def processar_transacao(evento):
     global log_de_transacoes
