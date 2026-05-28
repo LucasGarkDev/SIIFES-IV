@@ -9,8 +9,7 @@ import matplotlib.pyplot as plt
 # ========================================================
 # ====
 # 1. Configuração do período analisado
-minutos_no_mes = 43200  # 30 dias * 24 horas * 60
-minutos
+minutos_no_mes = 43200  # 30 dias * 24 horas * 60 # minutos
 # 2. Log simplificado de indisponibilidades dos serviços
 dados_disponibilidade = {
     "servico": [
